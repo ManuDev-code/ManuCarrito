@@ -1,6 +1,7 @@
 const contenedorTargetas = document.getElementById("productos-container");
 const unidadesElement = document.getElementById("unidades");
 const precioElement = document.getElementById("precio");
+const reiniciarElement = document.getElementById("reiniciar");
 
 function crearTargetasProductosInicio(){
     contenedorTargetas.innerHTML = "";
@@ -72,3 +73,12 @@ function revisarMensajeVacio(){
     }
 }
 revisarMensajeVacio();
+
+reiniciarElement.addEventListener("click", reiniciarCarrito);
+
+function reiniciarCarrito() {
+    localStorage.removeItem("productos"); // Elimina los productos del localStorage
+    actualizarTotales(); // Actualiza los totales a 0
+    revisarMensajeVacio(); // Muestra el mensaje de "Carrito vacío"
+    crearTargetasProductosInicio(); // Refresca la lista de productos en el carrito
+}
