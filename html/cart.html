@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/cart.css">
+    <script src="../js/cartService.js" defer></script>
+    <script src="../js/cart.js" defer></script>
+    <title>Apple Carrito</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="./Index.html" class="logo-container">
+                <img src="../img/apple-logo.png" id="logo" alt="logo">
+                <span class="store-name">Apple Store</span>
+            </a>
+            <div class="search-container">
+                <img src="../img/search.png" alt="Search" class="search-icon">
+                <input type="text" placeholder="Search products...">
+            </div>
+            <div class="nav-actions">
+                <a href="">Términos</a>
+                <a href="">Contacto</a>
+                <a href="../html/cart.html" id="cart" class="icon-button">
+                    <img src="../img/carrito.png" alt="Carrito">
+                    <span id="cuenta-carrito">0</span>
+                </a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <p id="carrito-vacio" class="escondido">Tu carrito está vacío. <a href="./index.html">Volver a la tienda</a></p>
+        <section id="productos-container"></section>
+        <section id="totales" class="escondido">
+            <p>Total unidades: <span id="unidades">0</span></p>
+            <p>Total precio: $<span id="precio">0</span></p>
+            <button id="comprar" disabled>Comprar</button>
+            <button id="reiniciar">Reiniciar carrito</button>
+        </section>
+    </main>
+    <footer>
+        <p>Hola hola</p>
+    </footer>
+</body>
+</html>
+

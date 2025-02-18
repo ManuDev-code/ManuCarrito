@@ -1,0 +1,161 @@
+#productos-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.targeta-producto {
+    width: calc(50% - 0.5rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.targeta-producto:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.targeta-producto img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: var(--radius);
+    margin-bottom: 0.5rem;
+}
+
+.producto-info {
+    text-align: center;
+    width: 100%;
+}
+
+.targeta-producto h3 {
+    font-size: 1rem;
+    margin: 0 0 0.5rem 0;
+    color: var(--text-color);
+}
+
+.quantity-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.menos, .mas {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: 4px;
+    width: 2rem;
+    height: 2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+}
+
+.menos:hover, .mas:hover {
+    background-color: #e55800;
+}
+
+.cantidad {
+    font-size: 1rem;
+    font-weight: bold;
+    min-width: 2rem;
+    text-align: center;
+    margin: 0 0.5rem;
+}
+
+.targeta-producto p {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #888;
+    margin-bottom: 10px;
+}
+
+#totales {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 300px;
+    margin: 2rem auto;
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 1.5rem;
+}
+
+#totales p {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#totales span {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+#totales button {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: var(--radius);
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background-color 0.2s ease-in-out;
+    width: 100%;
+}
+
+#totales button:hover:not(:disabled) {
+    background-color: #e55800;
+}
+
+#totales button:disabled {
+    background-color: var(--muted-text);
+    cursor: not-allowed;
+}
+
+#totales button:last-child {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    margin-top: 0.5rem;
+}
+
+#totales button:last-child:hover {
+    background-color: var(--border-color);
+}
+
+#carrito-vacio {
+    text-align: center;
+    font-size: 1.25rem;
+    color: var(--muted-text);
+    margin: 4rem 0;
+}
+
+.escondido {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .targeta-producto {
+        width: 100%;
+    }
+}
