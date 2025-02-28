@@ -8,7 +8,7 @@ function crearTargetasProductosInicio(){
     const productos = JSON.parse(localStorage.getItem("productos"));
     console.log(productos)
 
-    if(productos && productos.length > 0){ /*Verifica que sí hayan prodcutos en el carrito para mostrarlos*/
+    if(productos && productos.length > 0){ /*Verifica que sí hayan productos en el carrito para mostrarlos*/
         productos.forEach(producto => {
             const nuevoProducto = document.createElement("div");
             nuevoProducto.classList = "targeta-producto";
@@ -82,3 +82,66 @@ function reiniciarCarrito() {
     revisarMensajeVacio(); // Muestra el mensaje de "Carrito vacío"
     crearTargetasProductosInicio(); // Refresca la lista de productos en el carrito
 }
+
+
+//Función para el botón de comprar
+document.addEventListener("DOMContentLoaded", () => {
+    const comprarBtn = document.getElementById("comprar");
+
+    function actualizarEstadoBotonComprar() {
+        const productosEnCarrito = JSON.parse(localStorage.getItem("productos")) || [];
+        if (productosEnCarrito.length > 0) {
+            comprarBtn.disabled = false;
+        } else {
+            comprarBtn.disabled = true;
+        }
+    }
+
+    // Llamar a la función al cargar la página
+    actualizarEstadoBotonComprar();
+
+    comprarBtn.addEventListener("click", () => {
+        const productosEnCarrito = JSON.parse(localStorage.getItem("productos")) || [];
+
+        if (productosEnCarrito.length === 0) {
+            alert("El carrito está vacío. Agrega productos antes de comprar.");
+            return;
+        }
+
+        // Redirigir a la página de compra
+        window.location.href = "../html/compra.html";
+    });
+
+    // Asegurar que el botón se actualice cuando cambien los productos
+    reiniciarElement.addEventListener("click", () => {
+        reiniciarCarrito();
+        actualizarEstadoBotonComprar();
+    });
+
+    function actualizarTotales() {
+        const productos = JSON.parse(localStorage.getItem("productos")) || [];
+
+        if (productos.length > 0) {
+            let unidades = 0;
+            let precio = 0;
+
+            productos.forEach(producto => {
+                unidades += producto.cantidad;
+                precio += producto.precio * producto.cantidad;
+            });
+
+            unidadesElement.innerText = unidades;
+            precioElement.innerText = precio;
+            comprarBtn.disabled = false; // Habilitar botón si hay productos
+        } else {
+            unidadesElement.innerText = "0";
+            precioElement.innerText = "0.00";
+            comprarBtn.disabled = true; // Deshabilitar botón si el carrito está vacío
+        }
+        revisarMensajeVacio();
+    }
+
+    // Asegurar que la función se llame cuando se actualizan los totales
+    actualizarTotales();
+});
+

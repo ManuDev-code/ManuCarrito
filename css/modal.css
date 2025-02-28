@@ -1,0 +1,68 @@
+/* Fondo difuminado cuando el modal está abierto */
+.modal-open::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+    z-index: 999;
+}
+
+.targeta-detalles {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--white);
+    padding: 30px;
+    width: 50%;
+    max-width: 500px;
+    box-shadow: var(--shadow);
+    border-radius: var(--radius);
+    z-index: 1000;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    color: var(--text-color);
+}
+
+.targeta-detalles img {
+    width: 80%;
+    height: auto;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: var(--radius);
+    margin-bottom: 15px;
+}
+
+.targeta-detalles h3 {
+    font-size: 1.5rem;
+    margin: 15px 0;
+    font-weight: 600;
+}
+
+.targeta-detalles p {
+    font-size: 1.1rem;
+    color: var(--muted-text);
+    margin-bottom: 10px;
+    font-weight: 400;
+}
+
+.targeta-detalles button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: var(--primary-color);
+    color: var(--white);
+    border: none;
+    cursor: pointer;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.targeta-detalles button:hover {
+    background: #e55800;
+}

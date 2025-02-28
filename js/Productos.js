@@ -4,6 +4,7 @@ const Productos = [
        nombre: "MacBook",
        img: "../img/MacBook.webp",
        precio: 6000000,
+       descripcion: "Una descripcion bien pro",
     },
     {
         id: 2,
